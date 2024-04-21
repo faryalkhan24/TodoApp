@@ -1,0 +1,15 @@
+﻿@model List<ToDoWebApp.Models.DAL.Task> 
+
+ @foreach (var item in Model)
+ {
+    <tr class="@((item.Completed == 1) ? "completedTask" : "")" data-task-id="@item.TaskId" id="tr_" +"@item.TaskId">
+        <td class="task-name">@item.TaskName</td>
+        <td class="task-description">@item.TaskDescription</td>
+        <td class="task-date">@item.ForDate?.ToShortDateString()</td>
+        <td><input type="checkbox" @(item.Completed == 1 ? "checked" : "") class="completedCheckbox" /></td>
+        <td>
+            <a class="edit-task">Edit</a>
+            <a class="delete-task">Delete</a>
+        </td>
+     </tr>
+ }
